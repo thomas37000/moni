@@ -14,13 +14,14 @@ const ShoppingList = () => {
   }, []);
 
   return (
-    <>
-      <Title level={4} type="secondary">Liste de courses</Title >
+    <div className="table-wrapper">
+       <Title level={3} type="secondary">Ticket détaillé</Title >
       <Table
         columns={columns}
         dataSource={courseList.map((item) => ({ ...item, key: item.ticket }))}
       />
-    </>
+      <div className="scroll-bar" />
+    </div>
   );
 };
 

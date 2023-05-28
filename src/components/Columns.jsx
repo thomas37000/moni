@@ -16,25 +16,10 @@ const columns = [
     render: (prix) => <span>{prix} €</span>,
   },
   {
-    title: 'Catégorie',
-    dataIndex: 'categorie',
-    key: 'categorie',
-    render: (text, record) => (
-      <ul>
-        {record.categories.map((category) => (
-          <li key={category.id}>
-            <h4>{category.nom}</h4>
-            <ul>
-              {category.ingredients.map((ingredient) => (
-                <li key={ingredient.id}>
-                  {ingredient.nom} - {ingredient.quantite} - {ingredient.prix} €
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    ),
+    title: 'Ticket',
+    dataIndex: 'ticket',
+    key: 'ticket',
+    // render: (detail) => <span>{detail} €</span>,
   },
 ];
 

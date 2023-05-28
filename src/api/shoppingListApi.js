@@ -1,8 +1,8 @@
 const shoppingListApi = [
   {
     ticket: 1,
-    date: "27/05/2023",
-    supermarche: 'Super UH',
+    date: "02/05/2023",
+    supermarche: 'Lidleul',
     categories: [
       {
         id: 1,
@@ -59,11 +59,11 @@ const shoppingListApi = [
         ],
       },
     ],
-    prix_total: 19.0,
+    prix_total: 7.0,
   },
   {
     ticket: 2,
-    date: "22/05/2023",
+    date: "15/05/2023",
     supermarche: 'CarreFourre',
     categories: [
       {
@@ -187,8 +187,8 @@ const shoppingListApi = [
   },
   {
     ticket: 4,
-    date: "02/05/2023",
-    supermarche: 'Lidleul',
+    date: "27/05/2023",
+    supermarche: 'Super UH',
     categories: [
       {
         id: 1,
@@ -245,7 +245,7 @@ const shoppingListApi = [
         ],
       },
     ],
-    prix_total: 31.0,
+    prix_total: 19.0,
   },
 ];
 
