@@ -103,7 +103,7 @@
     "@antv/util" "^2.0.9"
     react-content-loader "^5.0.4"
 
-"@ant-design/plots@^1.0.2":
+"@ant-design/plots@^1.0.2", "@ant-design/plots@^1.2.5":
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/@ant-design/plots/-/plots-1.2.5.tgz#404caf0e2c8d052590fe080c6f0fdf0e0c3119ab"
   integrity sha512-8Jvu2xC5y5/B38/9Qr6CBiXCZopsGEA3IR4pjLFlkLoT4OHIKr4y8oIvhahM9mh9ZATyjkrZLWJBI8yETrReGg==

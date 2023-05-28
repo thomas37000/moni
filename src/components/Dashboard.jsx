@@ -1,15 +1,14 @@
 import { Col, Layout, Menu, Row, Typography } from 'antd';
 import {
   DollarOutlined,
-  PieChartOutlined,
   FileOutlined,
   ShoppingCartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import moni from '../assets/moni.svg';
 import ShoppingList from './ShoppingList';
-import ShoppingChart from './LineChart';
-import ShoppingStats from './Statistic';
+import ShoppingChart from './Charts/ShoppingChart';
+import ShoppingPieChart from './Charts/ShoppingPieChart';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -39,7 +38,9 @@ const Dashboard = () => {
               title="User"
             >
               <Menu.Item key="1">Thomas</Menu.Item>
-              <Menu.Item key="2">Julie</Menu.Item>
+              <Menu.Item key="2" disabled block>
+                Julie
+              </Menu.Item>
             </Menu.SubMenu>
             <Menu.Item
               key="6"
@@ -48,16 +49,20 @@ const Dashboard = () => {
               Courses
             </Menu.Item>
             <Menu.Item
+              disabled
+              block="true"
               key="7"
               icon={<DollarOutlined style={{ fontSize: '23px' }} />}
             >
               Loyer
             </Menu.Item>
             <Menu.Item
+              disabled
+              block="true"
               key="8"
               icon={<FileOutlined style={{ fontSize: '23px' }} />}
             >
-              Files
+              Autre
             </Menu.Item>
           </Menu>
         </Sider>
@@ -98,7 +103,7 @@ const Dashboard = () => {
               </Col>
             </Row>
 
-            {/* <ShoppingStats /> */}
+            <ShoppingPieChart />
           </Content>
         </Layout>
       </Layout>

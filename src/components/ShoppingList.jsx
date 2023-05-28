@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Table, Typography } from 'antd';
 import shoppingListApi from '../api/shoppingListApi';
-import columns from './Columns';
+import columns from './Columns/Columns';
 import './ShoppingList.css';
 
 const { Title } = Typography;
