@@ -21,8 +21,6 @@ const ShoppingPieChart = () => {
     });
   });
 
-  console.log(categoryData);
-
   const config = {
     data: categoryData,
     angleField: 'value',
