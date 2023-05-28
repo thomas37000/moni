@@ -1,0 +1,18 @@
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.scroll-bar {
+  visibility: hidden; /* Cache la barre de défilement horizontale par défaut */
+  height: 1px; /* Défini la hauteur de la barre de défilement */
+}
+
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: scroll; /* Active le défilement horizontal pour les écrans plus petits */
+  }
+
+  .scroll-bar {
+    visibility: visible; /* Affiche la barre de défilement horizontale pour les petits écrans */
+  }
+}
