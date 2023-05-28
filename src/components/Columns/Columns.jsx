@@ -19,7 +19,7 @@ const columns = [
     title: 'Ticket',
     dataIndex: 'ticket',
     key: 'ticket',
-    render: () => <a href="#">détail</a>,
+    render: () => <a href="#" style={{color: '#1E90FF'}}>détail</a>,
   },
 ];
 

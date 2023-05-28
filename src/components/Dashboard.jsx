@@ -66,7 +66,8 @@ const Dashboard = () => {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
+
+        <Layout style={{ padding: '0 12px 12px' }}>
           <Content
             className="site-layout-background"
             style={{
@@ -76,7 +77,13 @@ const Dashboard = () => {
             }}
           >
             <Title level={1}>Courses</Title>
-            <Row>
+            <Row
+              style={{
+                justifyContent: 'space-around',
+                background: 'white',
+                borderRadius: '15px',
+              }}
+            >
               <Col
                 xs={{
                   span: 5,
@@ -102,8 +109,16 @@ const Dashboard = () => {
                 <ShoppingChart />
               </Col>
             </Row>
-
-            <ShoppingPieChart />
+            <div
+              style={{
+                justifyContent: 'space-around',
+                marginTop: '1rem',
+                background: 'white',
+                borderRadius: '15px',
+              }}
+            >
+              <ShoppingPieChart />{' '}
+            </div>
           </Content>
         </Layout>
       </Layout>
