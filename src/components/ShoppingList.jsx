@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import { Table, Typography } from 'antd';
 import columns from './Columns/Columns';
+import { supabase } from '../api/supabase';
 // import './ShoppingList.css';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_TOKEN;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 const { Title } = Typography;
 

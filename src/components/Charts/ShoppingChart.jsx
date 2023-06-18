@@ -1,14 +1,29 @@
+import { useState, useEffect } from 'react';
 import { Typography } from 'antd';
 import { Line } from '@ant-design/charts';
-import shoppingListApi from '../../api/shoppingListApi';
+import { supabase } from '../../api/supabase';
 
 const { Title } = Typography;
 
 const ShoppingChart = () => {
-  const data = shoppingListApi.map((item) => ({
-    date: item.date,
-    total: parseFloat(item.prix_total),
+  const [shopLists, setShopLists] = useState([]);
+
+  console.log("CHART", shopLists);
+
+  useEffect(() => {
+    getShopLists();
+  }, []);
+
+  async function getShopLists() {
+    const { data } = await supabase.from('shopping_list').select();
+    setShopLists(data);
+  }
+
+  const data = shopLists.map((item) => ({
+    date: item.created_at,
+    total: item.total,
   }));
+
 
   // Configurations du graphique
   const config = {

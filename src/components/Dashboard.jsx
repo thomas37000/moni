@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import moni from '../assets/moni.svg';
 import ShoppingList from './ShoppingList';
+import ShoppingChart from './Charts/ShoppingChart';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -113,7 +114,7 @@ const Dashboard = () => {
                   offset: 2,
                 }}
               >
-                {/* <ShoppingChart /> */}
+                <ShoppingChart />
               </Col>
             </Row>
             <div
