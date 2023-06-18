@@ -25,3 +25,6 @@ dist-ssr
 
 # Tokens
 .env
+
+# Netlify configuration file
+netlify.toml
