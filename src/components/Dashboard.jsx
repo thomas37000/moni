@@ -7,8 +7,6 @@ import {
 } from '@ant-design/icons';
 import moni from '../assets/moni.svg';
 import ShoppingList from './ShoppingList';
-import ShoppingChart from './Charts/ShoppingChart';
-import ShoppingPieChart from './Charts/ShoppingPieChart';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -19,9 +17,15 @@ const Dashboard = () => {
       <Header className="header">
         <img src={moni} alt="Moni Logo" className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1">Nav 1</Menu.Item>
-          <Menu.Item key="2">Nav 2</Menu.Item>
-          <Menu.Item key="3">Nav 3</Menu.Item>
+          <Menu.Item key="1" title="Nav 1" items="Nav 1">
+            Nav 1
+          </Menu.Item>
+          <Menu.Item key="2" title="Nav 2" items="Nav 2">
+            Nav 2
+          </Menu.Item>
+          <Menu.Item key="3" title="Nav 3" items="Nav 3">
+            Nav 3
+          </Menu.Item>
         </Menu>
       </Header>
       <Layout>
@@ -37,30 +41,33 @@ const Dashboard = () => {
               icon={<UserOutlined style={{ fontSize: '23px' }} />}
               title="User"
             >
-              <Menu.Item key="1">Thomas</Menu.Item>
-              <Menu.Item key="2" disabled block>
+              <Menu.Item key="1" title="Thomas">
+                Thomas
+              </Menu.Item>
+              <Menu.Item key="2" disabled title="Julie">
                 Julie
               </Menu.Item>
             </Menu.SubMenu>
             <Menu.Item
               key="6"
               icon={<ShoppingCartOutlined style={{ fontSize: '23px' }} />}
+              title="Courses"
             >
               Courses
             </Menu.Item>
             <Menu.Item
               disabled
-              block="true"
               key="7"
               icon={<DollarOutlined style={{ fontSize: '23px' }} />}
+              title="Loyer"
             >
               Loyer
             </Menu.Item>
             <Menu.Item
               disabled
-              block="true"
               key="8"
               icon={<FileOutlined style={{ fontSize: '23px' }} />}
+              title="Autre"
             >
               Autre
             </Menu.Item>
@@ -106,7 +113,7 @@ const Dashboard = () => {
                   offset: 2,
                 }}
               >
-                <ShoppingChart />
+                {/* <ShoppingChart /> */}
               </Col>
             </Row>
             <div
@@ -117,7 +124,7 @@ const Dashboard = () => {
                 borderRadius: '15px',
               }}
             >
-              <ShoppingPieChart />{' '}
+              {/* <ShoppingPieChart /> */}
             </div>
           </Content>
         </Layout>
