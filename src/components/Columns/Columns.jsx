@@ -1,25 +1,39 @@
+// import moment from 'moment';
+
 const columns = [
   {
     title: 'Supermarché',
-    dataIndex: 'supermarche',
-    key: 'supermarche',
+    dataIndex: 'nom_magasin',
+    key: 'nom_magasin',
   },
   {
     title: 'Date',
-    dataIndex: 'date',
-    key: 'date',
+    dataIndex: 'created_at',
+    key: 'created_at',
+    // render: (date) => (
+    //   <span>
+    //     {moment(date.created_at, 'YYYY-MM-DDTHH:mm:ssZ').format(
+    //       'DD/MM/YYYY'
+    //     )}
+    //   </span>
+    // ),
   },
+
   {
     title: 'Total',
-    dataIndex: 'prix_total',
-    key: 'prix_total',
+    dataIndex: 'total',
+    key: 'total',
     render: (prix) => <span>{prix} €</span>,
   },
   {
     title: 'Ticket',
-    dataIndex: 'ticket',
-    key: 'ticket',
-    render: () => <a href="#" style={{color: '#1E90FF'}}>détail</a>,
+    dataIndex: 'uuid',
+    key: 'uuid',
+    render: () => (
+      <a href="#" style={{ color: '#1E90FF' }}>
+        détail
+      </a>
+    ),
   },
 ];
 
