@@ -1,4 +1,5 @@
 // import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const columns = [
   {
@@ -18,7 +19,6 @@ const columns = [
     //   </span>
     // ),
   },
-
   {
     title: 'Total',
     dataIndex: 'total',
@@ -27,12 +27,12 @@ const columns = [
   },
   {
     title: 'Ticket',
-    dataIndex: 'uuid',
-    key: 'uuid',
-    render: () => (
-      <a href="#" style={{ color: '#1E90FF' }}>
+    dataIndex: 'id',
+    key: 'id',
+    render: (text, record) => (
+      <Link to={`/ticket/${record?.id}`} key={record?.id}>
         détail
-      </a>
+      </Link>
     ),
   },
 ];

@@ -8,8 +8,6 @@ const { Title } = Typography;
 const ShoppingChart = () => {
   const [shopLists, setShopLists] = useState([]);
 
-  console.log("CHART", shopLists);
-
   useEffect(() => {
     getShopLists();
   }, []);
