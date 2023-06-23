@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Typography } from 'antd';
 import { Line } from '@ant-design/charts';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 import { supabase } from '../../api/supabase';
 
 const { Title } = Typography;
@@ -13,15 +15,19 @@ const ShoppingChart = () => {
   }, []);
 
   async function getShopLists() {
-    const { data } = await supabase.from('shopping_list').select();
+    const { data } = await supabase
+      .from('shopping_list')
+      .select()
+      .order('created_at', { ascending: true });
     setShopLists(data);
   }
 
   const data = shopLists.map((item) => ({
-    date: item.created_at,
+    date: format(new Date(item.created_at), 'dd MMMM yyyy', {
+      locale: fr,
+    }),
     total: item.total,
   }));
-
 
   // Configurations du graphique
   const config = {

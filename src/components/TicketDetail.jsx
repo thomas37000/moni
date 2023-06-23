@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Card, List, Typography } from 'antd';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 import { supabase } from '../api/supabase';
 import './ShoppingList.css';
 
@@ -10,7 +12,7 @@ const TicketDetail = () => {
   const { id } = useParams();
 
   const [ticketDetail, setTicketDetail] = useState(null);
- // console.log('ticketDetail', ticketDetail);
+  // console.log('ticketDetail', ticketDetail);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +62,11 @@ const TicketDetail = () => {
               <Text type="secondary">
                 {detail.adresse} - {detail.ville} - {detail.departement}
               </Text>
-              <div>{detail.created_at}</div>
+              <div>
+                {format(new Date(detail.created_at), 'dd MMMM yyyy', {
+                  locale: fr,
+                })}
+              </div>
 
               {detail.boucherie_traiteur.map((item) => (
                 <div key={item.id}>

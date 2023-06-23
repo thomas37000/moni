@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import {
   DollarOutlined,
   FileOutlined,
+  QuestionCircleOutlined,
   ShoppingCartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -19,27 +21,24 @@ const SiderApp = () => {
       >
         <Menu.SubMenu
           key="sub1"
-          icon={<UserOutlined style={{ fontSize: '23px' }} />}
+          icon={<UserOutlined style={{ fontSize: '20px' }} />}
           title="User"
         >
           <Menu.Item key="1" title="Thomas">
             Thomas
           </Menu.Item>
-          <Menu.Item key="2" disabled title="Julie">
-            Julie
-          </Menu.Item>
         </Menu.SubMenu>
         <Menu.Item
           key="6"
-          icon={<ShoppingCartOutlined style={{ fontSize: '23px' }} />}
+          icon={<ShoppingCartOutlined style={{ fontSize: '20px' }} />}
           title="Courses"
         >
-          Courses
+          <Link to="/">Courses</Link>
         </Menu.Item>
         <Menu.Item
           disabled
           key="7"
-          icon={<DollarOutlined style={{ fontSize: '23px' }} />}
+          icon={<DollarOutlined style={{ fontSize: '20px' }} />}
           title="Loyer"
         >
           Loyer
@@ -47,10 +46,18 @@ const SiderApp = () => {
         <Menu.Item
           disabled
           key="8"
-          icon={<FileOutlined style={{ fontSize: '23px' }} />}
+          icon={<FileOutlined style={{ fontSize: '20px' }} />}
           title="Autre"
         >
           Autre
+        </Menu.Item>
+        <Menu.Item
+          disabled
+          key="6"
+          icon={<QuestionCircleOutlined style={{ fontSize: '20px' }} />}
+          title="about"
+        >
+          <Link to="/about">A propos</Link>
         </Menu.Item>
       </Menu>
     </Sider>

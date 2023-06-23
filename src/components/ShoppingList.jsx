@@ -16,8 +16,9 @@ const ShoppingList = () => {
 
   async function getShopLists() {
     const { data } = await supabase
-      .from('shopping_list')
-      .select();
+    .from('shopping_list')
+    .select()
+    .order('created_at', { ascending: false });
     setShopLists(data);
   }
 
@@ -26,7 +27,9 @@ const ShoppingList = () => {
       <Title level={4} type="secondary">
         Liste de courses
       </Title>
+
       <Table
+        style={{ maxWidth: '450px' }}
         columns={columns}
         dataSource={
           shopLists &&

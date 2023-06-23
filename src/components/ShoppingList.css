@@ -1,5 +1,9 @@
 .table-wrapper {
+  display: grid;
+  justify-content: center;
+  margin-top: 1rem;
   overflow-x: auto;
+  text-align: center;
 }
 
 .scroll-bar {
