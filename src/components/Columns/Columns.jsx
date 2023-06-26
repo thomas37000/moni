@@ -1,4 +1,7 @@
-// import moment from 'moment';
+import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
+
 
 const columns = [
   {
@@ -10,15 +13,8 @@ const columns = [
     title: 'Date',
     dataIndex: 'created_at',
     key: 'created_at',
-    // render: (date) => (
-    //   <span>
-    //     {moment(date.created_at, 'YYYY-MM-DDTHH:mm:ssZ').format(
-    //       'DD/MM/YYYY'
-    //     )}
-    //   </span>
-    // ),
+    render: (created_at) => format(new Date(created_at), 'dd MMMM yyyy', { locale: fr }),
   },
-
   {
     title: 'Total',
     dataIndex: 'total',
@@ -27,12 +23,12 @@ const columns = [
   },
   {
     title: 'Ticket',
-    dataIndex: 'uuid',
-    key: 'uuid',
-    render: () => (
-      <a href="#" style={{ color: '#1E90FF' }}>
+    dataIndex: 'id',
+    key: 'id',
+    render: (text, record) => (
+      <Link to={`/ticket/${record?.id}`} key={record?.id}>
         détail
-      </a>
+      </Link>
     ),
   },
 ];
