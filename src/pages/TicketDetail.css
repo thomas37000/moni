@@ -1,0 +1,29 @@
+.table-wrapper {
+    display: grid;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .card_detail > .ant-card-head > .ant-card-head-wrapper{
+    display: grid;
+  }
+  
+  .card_detail {
+    margin-bottom: -1rem;
+  }
+  
+  .scroll-bar {
+    visibility: hidden; /* Cache la barre de défilement horizontale par défaut */
+  }
+  
+  @media (max-width: 768px) {
+    .table-wrapper {
+      overflow-x: scroll; /* Active le défilement horizontal pour les écrans plus petits */
+    }
+  
+    .scroll-bar {
+      visibility: visible; /* Affiche la barre de défilement horizontale pour les petits écrans */
+    }
+  }
+  

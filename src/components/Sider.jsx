@@ -25,7 +25,7 @@ const SiderApp = () => {
           title="User"
         >
           <Menu.Item key="1" title="Thomas">
-            Thomas
+          <Link to="/">Thomas</Link>
           </Menu.Item>
         </Menu.SubMenu>
         <Menu.Item
@@ -52,7 +52,6 @@ const SiderApp = () => {
           Autre
         </Menu.Item>
         <Menu.Item
-          disabled
           key="9"
           icon={<QuestionCircleOutlined style={{ fontSize: '20px' }} />}
           title="about"

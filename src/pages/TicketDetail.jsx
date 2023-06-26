@@ -4,7 +4,7 @@ import { Card, Divider, List, Typography } from 'antd';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { supabase } from '../api/supabase';
-import './ShoppingList.css';
+import './TicketDetail.css';
 
 const { Text, Title } = Typography;
 
@@ -12,7 +12,7 @@ const TicketDetail = () => {
   const { id } = useParams();
 
   const [ticketDetail, setTicketDetail] = useState(null);
-  console.log('ticketDetail', ticketDetail);
+  // console.log('ticketDetail', ticketDetail);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
