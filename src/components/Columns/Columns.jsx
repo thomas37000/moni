@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
-
 const columns = [
   {
     title: 'Supermarché',
@@ -13,13 +12,18 @@ const columns = [
     title: 'Date',
     dataIndex: 'created_at',
     key: 'created_at',
-    render: (created_at) => format(new Date(created_at), 'dd MMMM yyyy', { locale: fr }),
+    render: (created_at) =>
+      format(new Date(created_at), 'dd MMMM yyyy', { locale: fr }),
   },
   {
     title: 'Total',
     dataIndex: 'total',
     key: 'total',
-    render: (prix) => <span>{prix} €</span>,
+    render: (prix) => (
+      <span>
+        {prix.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €
+      </span>
+    ),
   },
   {
     title: 'Ticket',

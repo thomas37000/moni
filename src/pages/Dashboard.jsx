@@ -1,6 +1,7 @@
 import { Col, Row, Typography } from 'antd';
 import ShoppingList from '../components/ShoppingList';
 import ShoppingChart from '../components/Charts/ShoppingChart';
+import ShoppingPieChart from '../components/Charts/ShoppingPieChart';
 
 const { Title } = Typography;
 
@@ -19,6 +20,8 @@ const Dashboard = () => {
           <ShoppingChart />
         </Col>
       </Row>
+      
+      <div style={{ marginTop: "2rem" }}><ShoppingPieChart /></div>
     </div>
   );
 };

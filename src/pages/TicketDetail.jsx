@@ -86,7 +86,11 @@ const TicketDetail = () => {
 
               {detail?.boucherie_traiteur.map((item) => (
                 <div key={item.id}>
-                  {item?.item_name} - {item?.total} €
+                  {item?.item_name} -{' '}
+                  {item?.total.toLocaleString('fr-FR', {
+                    minimumFractionDigits: 2,
+                  })}{' '}
+                  €
                 </div>
               ))}
 
