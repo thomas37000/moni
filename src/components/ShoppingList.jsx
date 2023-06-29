@@ -9,18 +9,36 @@ const { Title } = Typography;
 const ShoppingList = () => {
   const [shopLists, setShopLists] = useState([]);
   // console.log(shopLists);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getShopLists();
   }, []);
 
   async function getShopLists() {
-    const { data } = await supabase
-    .from('shopping_list')
-    .select()
-    .order('created_at', { ascending: false });
-    setShopLists(data);
+    try {
+      const { data, error } = await supabase
+      .from('shopping_list')
+      .select()
+      .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error(error);
+        setError(error);
+      } else {
+        setShopLists(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setError(error);
+      setLoading(false);
+    }
   }
+
+  if (loading) return <p>Loading ...</p>;
+  if (error !== null) return <p>Problème avec l`&apos;`Api...</p>;
 
   return (
     <>
@@ -29,7 +47,6 @@ const ShoppingList = () => {
       </Title>
 
       <Table
-        style={{ maxWidth: '450px' }}
         columns={columns}
         dataSource={
           shopLists &&
