@@ -4,7 +4,7 @@ import './about.css';
 
 const About = () => {
   const [logos, setLogos] = useState(null);
-  console.log('ticketDetail', logos);
+  // console.log('about', logos);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 

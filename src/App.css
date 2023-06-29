@@ -1,3 +1,8 @@
+.header {
+  background-color: #1e90ff;
+  display: flex;
+}
+
 .logo {
   width: 40px;
   height: 40px;
@@ -5,6 +10,54 @@
   margin: 5px 0;
 }
 
-.header {
-  background-color: #1E90FF;
+.responsive-header {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+  margin-left: 10px;
+}
+
+.responsive-header :hover {
+  color: white
+}
+
+.dashboard {
+  display: grid;
+  justify-items: center;
+  margin: auto;
+  padding: 1rem;
+  width: 800px;
+  background-color: #fff;
+}
+
+.shoppingList {
+  width: 450px;
+}
+
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    display: grid;
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  aside {
+    display: none;
+  }
+
+  .dashboard {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .dashboard {
+    max-width: 400px;
+  }
+
+  .shoppingList {
+    width: 300px;
+  }
 }

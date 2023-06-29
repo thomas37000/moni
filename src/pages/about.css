@@ -11,7 +11,7 @@
 }
 
 .moni-span {
-  color: #000!important;
+  color: #000 !important;
 }
 
 .about-cards {
@@ -34,4 +34,20 @@
 
 .about-link {
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-cards {
+    display: grid;
+  }
+
+  .about-card {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .about-card {
+    max-width: 300px;
+  }
 }
