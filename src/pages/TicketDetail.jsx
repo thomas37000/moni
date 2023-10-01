@@ -156,6 +156,9 @@ const TicketDetail = () => {
 
               <Divider />
               <div>
+                Nombre articles: <Text strong>{detail.nombre_articles}</Text>
+              </div>
+              <div>
                 Total: <Text strong>{detail.total} €</Text>
               </div>
 

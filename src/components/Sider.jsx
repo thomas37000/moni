@@ -16,7 +16,7 @@ const SiderApp = () => {
       <Menu
         mode="inline"
         defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
+        defaultOpenKeys={['sub2']}
         style={{ height: '100%', borderRight: 0 }}
       >
         <Menu.SubMenu
@@ -25,16 +25,26 @@ const SiderApp = () => {
           title="User"
         >
           <Menu.Item key="1" title="Thomas">
-          <Link to="/">Thomas</Link>
+            <Link to="/dashboard">Thomas</Link>
           </Menu.Item>
         </Menu.SubMenu>
-        <Menu.Item
-          key="6"
+
+        <Menu.SubMenu
+          key="sub2"
           icon={<ShoppingCartOutlined style={{ fontSize: '20px' }} />}
           title="Courses"
         >
-          <Link to="/">Courses</Link>
-        </Menu.Item>
+          <Menu.Item key="1" title="Liste des courses">
+            <Link to="/courses/liste-des-courses">Liste de courses</Link>
+          </Menu.Item>
+
+          <Menu.Item key="2" title="Total Courses sur l'année">
+            <Link to="/courses/total-courses-annee">
+              Total sur l&apos; année
+            </Link>
+          </Menu.Item>
+        </Menu.SubMenu>
+
         <Menu.Item
           disabled
           key="7"
@@ -43,6 +53,7 @@ const SiderApp = () => {
         >
           Loyer
         </Menu.Item>
+
         <Menu.Item
           disabled
           key="8"

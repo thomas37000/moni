@@ -14,12 +14,13 @@ const HeaderApp = () => {
           'linear-gradient(90deg, rgba(88,168,249,1) 0%, rgba(203,140,240,1) 100%)',
       }}
     >
-      <Link to="/">
+      <Link to="/dashboard">
         <img src={moni} alt="Moni Logo" className="logo" />
       </Link>
 
-      <div className='responsive-header'>
-        <Link to="/">Courses</Link>
+      <div className="responsive-header">
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/courses/liste-des-courses">Courses</Link>
         <Link to="/about">A Propos</Link>
       </div>
     </Header>

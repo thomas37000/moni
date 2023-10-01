@@ -19,6 +19,7 @@ const columns = [
     title: 'Total',
     dataIndex: 'total',
     key: 'total',
+    width: '25%',
     render: (prix) => (
       <span>
         {prix.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} €
@@ -30,7 +31,7 @@ const columns = [
     dataIndex: 'id',
     key: 'id',
     render: (text, record) => (
-      <Link to={`/ticket/${record?.id}`} key={record?.id}>
+      <Link to={`/courses/ticket/${record?.id}`} key={record?.id}>
         détail
       </Link>
     ),

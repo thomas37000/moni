@@ -1,22 +1,20 @@
 import { Typography } from 'antd';
-import ShoppingList from '../components/ShoppingList';
 import ShoppingChart from '../components/Charts/ShoppingChart';
 import ShoppingPieChart from '../components/Charts/ShoppingPieChart';
+import ShoppingCurrentMonth from '../components/Columns/ShoppingCurrentMonth';
 
 const { Title } = Typography;
 
 const Dashboard = () => {
   return (
-    <div className='dashboard'>
-      <Title level={1}>
-        Courses
-      </Title>
+    <div className="dashboard">
+      <Title level={1}>Courses</Title>
 
-      <div className='shoppingList'>
-        <ShoppingList />
+      <div className="shoppingList">
+        <ShoppingCurrentMonth />
       </div>
 
-      <div className='shoppingChart'>
+      <div className="shoppingChart">
         <ShoppingChart />
       </div>
 
