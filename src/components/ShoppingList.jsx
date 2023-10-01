@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table, Typography } from 'antd';
+import { Table, Typography, Skeleton } from 'antd';
 import { supabase } from '../api/supabase';
 import columns from './Columns/Columns';
 // import './ShoppingList.css';
@@ -36,7 +36,7 @@ const ShoppingList = () => {
     }
   }
 
-  if (loading) return <p>Loading ...</p>;
+  if (loading) return <Skeleton active />;
   if (error !== null) return <p>Problème avec l`&apos;`Api...</p>;
 
   return (

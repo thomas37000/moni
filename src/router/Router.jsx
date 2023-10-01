@@ -60,7 +60,11 @@ const Routter = () => {
             {/*  */}
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" />} />
-              <Route path="dashboard/" element={<Dashboard />}></Route>
+              {/* Netlify redirect */}
+              <Route path="index" element={<Navigate to="/dashboard" />} />
+              <Route path="index.html" element={<Navigate to="/dashboard" />} />
+
+              <Route path="dashboard" element={<Dashboard />}></Route>
               <Route path="about" element={<About />} />
               <Route path="courses">
                 <Route>
