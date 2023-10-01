@@ -1,13 +1,14 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import { Breadcrumb, Layout } from 'antd';
 import HeaderApp from '../components/Header';
 import SiderApp from '../components/Sider';
 import FooterApp from '../components/Footer';
+import ShoppingList from '../components/ShoppingList';
 import ShoppingYearTotal from '../components/ShoppingYearTotal';
 import About from '../pages/About';
 import Dashboard from '../pages/Dashboard';
+import PageNotFound from '../pages/PageNotFound';
 import TicketDetail from '../pages/TicketDetail';
-import ShoppingList from '../components/ShoppingList';
 
 const { Content } = Layout;
 
@@ -58,7 +59,7 @@ const Routter = () => {
             </Breadcrumb>
             {/*  */}
             <Routes>
-              {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/" element={<Navigate to="/dashboard" />} />
               <Route path="dashboard/*" element={<Dashboard />}></Route>
               <Route path="about" element={<About />} />
               <Route path="courses">
@@ -71,6 +72,8 @@ const Routter = () => {
                 </Route>
                 <Route path="ticket/:id" element={<TicketDetail />} />
               </Route>
+
+              <Route path="/*" element={<PageNotFound />} />
             </Routes>
             {/*  */}
           </Content>

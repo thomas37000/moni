@@ -34,11 +34,11 @@ const SiderApp = () => {
           icon={<ShoppingCartOutlined style={{ fontSize: '20px' }} />}
           title="Courses"
         >
-          <Menu.Item key="1" title="Liste des courses">
+          <Menu.Item key="2" title="Liste des courses">
             <Link to="/courses/liste-des-courses">Liste de courses</Link>
           </Menu.Item>
 
-          <Menu.Item key="2" title="Total Courses sur l'année">
+          <Menu.Item key="3" title="Total Courses sur l'année">
             <Link to="/courses/total-courses-annee">
               Total sur l&apos; année
             </Link>
