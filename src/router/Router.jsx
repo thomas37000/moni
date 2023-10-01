@@ -60,7 +60,7 @@ const Routter = () => {
             {/*  */}
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" />} />
-              <Route path="dashboard/*" element={<Dashboard />}></Route>
+              <Route path="dashboard/" element={<Dashboard />}></Route>
               <Route path="about" element={<About />} />
               <Route path="courses">
                 <Route>
@@ -73,7 +73,7 @@ const Routter = () => {
                 <Route path="ticket/:id" element={<TicketDetail />} />
               </Route>
 
-              <Route path="/*" element={<PageNotFound />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
             {/*  */}
           </Content>

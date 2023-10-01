@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Card, Divider, List, Typography } from 'antd';
+import { Link } from 'react-router-dom';
+import { Card, Divider, List, Typography, Button, Result } from 'antd';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { supabase } from '../api/supabase';
@@ -55,7 +56,18 @@ const TicketDetail = () => {
   }
 
   if (loading) return <p>Loading ...</p>;
-  if (error !== null) return <p>Problème avec l`&apos;`Api...</p>;
+  if (error !== null)
+    return (
+      <Result
+        status="warning"
+        title="Ce Ticket n'existe pas !"
+        extra={
+          <Button type="primary" key="console">
+            <Link to="/dashboard">Accueil</Link>
+          </Button>
+        }
+      />
+    );
 
   return (
     <div className="table-wrapper">
