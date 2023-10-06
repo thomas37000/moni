@@ -12,7 +12,7 @@ const ShoppingCurrentMonth = () => {
   const [loading, setLoading] = useState(true);
 
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
+  const currentMonth = currentDate.getMonth() + 1;
   const currentYear = currentDate.getFullYear();
 
   const currentMonthString = new Date().toLocaleString('fr-FR', {
@@ -32,8 +32,8 @@ const ShoppingCurrentMonth = () => {
         .from('shopping_list')
         .select()
         .order('created_at', { ascending: false })
-        .gte('created_at', `${currentYear}-${currentMonth}-01`)
-        .lt('created_at', `${currentYear}-${currentMonth + 1}-01`); // Next month's 1° day
+        .gte('created_at', `${currentYear}-${currentMonth}-01`) // Sélectionne les tickets dont la date de création est > ou = au premier jour du mois actuel.
+        .lt('created_at', `${currentYear}-${currentMonth + 1}-01`); // Prochain 1er jour du mois
 
       if (error) {
         console.error(error);
