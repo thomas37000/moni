@@ -15,10 +15,16 @@ const ShoppingChart = () => {
   }, []);
 
   async function getShopLists() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+
     const { data } = await supabase
       .from('shopping_list')
       .select()
-      .order('created_at', { ascending: true });
+      .order('created_at', { ascending: true })
+      .gte('created_at', `${currentYear}-01-01`) // >= au 1° janvier
+      .lte('created_at', `${currentYear}-12-31`); // <= au 31 décembre
+
     setShopLists(data);
   }
 

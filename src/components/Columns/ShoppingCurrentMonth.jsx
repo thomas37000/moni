@@ -92,9 +92,21 @@ const ShoppingCurrentMonth = () => {
         Liste de courses sur le mois{' '}
         {monthYear === 'Avril' ||
         monthYear === 'Août' ||
-        monthYear === 'Octobre'
-          ? `d' ${monthYear} ${currentYear}`
-          : `de ${monthYear} ${currentYear}`}
+        monthYear === 'Octobre' ? (
+          <span>
+            {`d' `}
+            <span
+              style={{ color: '#FFC857' }}
+            >{`${monthYear} ${currentYear}`}</span>
+          </span>
+        ) : (
+          <span>
+            {`de `}
+            <span
+              style={{ color: '#FFC857' }}
+            >{`${monthYear} ${currentYear}`}</span>
+          </span>
+        )}
       </Title>
 
       <Table

@@ -47,13 +47,18 @@ const ShoppingPieChart = () => {
 
   async function getShopListDetail() {
     try {
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+
       const { data, error } = await supabase
         .from('shopping_list')
         .select(
           `*,
           ${categories.map((category) => `${category}(*)`).join(', ')}`
         )
-        .order('created_at', { ascending: false });
+        .order('created_at', { ascending: false })
+        .gte('created_at', `${currentYear}-01-01`) // >= au 1° janvier
+        .lte('created_at', `${currentYear}-12-31`); // <= au 31 décembre
 
       if (error) {
         console.error(error);
