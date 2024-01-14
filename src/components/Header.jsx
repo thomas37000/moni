@@ -20,7 +20,8 @@ const HeaderApp = () => {
 
       <div className="responsive-header">
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/courses/liste-des-courses">Courses</Link>
+        <Link to="/courses/liste-des-courses">Liste des courses</Link>
+        <Link to="/courses/total-courses-annee">Total des courses</Link>
         <Link to="/about">A Propos</Link>
       </div>
     </Header>

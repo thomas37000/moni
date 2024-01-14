@@ -13,12 +13,12 @@
 .responsive-header {
   display: flex;
   justify-content: space-around;
-  width: 350px;
+  width: 550px;
   margin-left: 10px;
 }
 
 .responsive-header :hover {
-  color: white
+  color: white;
 }
 
 .dashboard {
@@ -53,6 +53,18 @@
 }
 
 @media screen and (min-width: 300px) and (max-width: 500px) {
+  :where(.css-dev-only-do-not-override-w8mnev).ant-layout-header {
+    padding-inline: 0;
+  }
+
+  .responsive-header {
+    font-size: small;
+  }
+
+  .logo {
+    display: none;
+  }
+
   .dashboard {
     max-width: 400px;
   }

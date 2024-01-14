@@ -10,8 +10,7 @@ const { Title } = Typography;
 
 const ShoppingYearTotal = () => {
   const [shopLists, setShopLists] = useState([]);
-  const [totalSumYear, setTotalSumYear] = useState(0);
-  const [totalSumMonth, setTotalSumMonth] = useState({});
+  const [totalSums, setTotalSums] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -21,23 +20,28 @@ const ShoppingYearTotal = () => {
 
   useEffect(() => {
     if (shopLists.length > 0) {
-      const totalByMonth = shopLists.reduce((acc, shop) => {
+      const totalsByYear = shopLists.reduce((acc, shop) => {
+        const year = format(new Date(shop.created_at), 'yyyy');
         const monthYear = format(new Date(shop.created_at), 'MMMM yyyy', {
           locale: fr,
         });
-        acc[monthYear] = (acc[monthYear] || 0) + shop.total;
+
+        // Initialiser la structure pour l'année si elle n'existe pas encore
+        acc[year] = acc[year] || {
+          totalSumYear: 0,
+          totalSumMonth: {},
+        };
+
+        // Accumuler le total pour l'année
+        acc[year].totalSumYear += shop.total;
+        // Accumuler le total par mois pour l'année
+        acc[year].totalSumMonth[monthYear] =
+          (acc[year].totalSumMonth[monthYear] || 0) + shop.total;
+
         return acc;
       }, {});
 
-      setTotalSumMonth(totalByMonth);
-    }
-
-    if (shopLists.length > 0) {
-      const totalDesCourses = shopLists.reduce(
-        (acc, shop) => acc + shop.total,
-        0
-      );
-      setTotalSumYear(totalDesCourses);
+      setTotalSums(totalsByYear);
     }
   }, [shopLists]);
 
@@ -65,21 +69,37 @@ const ShoppingYearTotal = () => {
   if (loading) return <p>Loading ...</p>;
   if (error !== null) return <p>Problème avec l`&apos;`Api...</p>;
 
+  const sortedYears = Object.keys(totalSums).sort(
+    (a, b) => parseInt(b) - parseInt(a)
+  );
+
   return (
     <>
-      <Title level={4}>
-        {/* toFixed(2) pour ne pas avoir 13 décimales après la virgule */}
-        {/* exemple :  totalSumYear.toFixed(2) ? 741,30 € : 741.3000000000001 € */}
-        Total des courses sur l&apos; année : {totalSumYear.toFixed(2)} €
-      </Title>
+      {sortedYears.map((year) => {
+        const { totalSumYear, totalSumMonth } = totalSums[year];
+        return (
+          <div key={year}>
+            <Title level={4} type="secondary" style={{ marginTop: '2Opx' }}>
+              Total des courses sur l&apos; année {year}:{' '}
+              <span style={{ color: '#000' }}>{totalSumYear.toFixed(2)} €</span>
+            </Title>
 
-      <Table
-        columns={columnsMonthTotal}
-        dataSource={Object.entries(totalSumMonth).map(([monthYear, total]) => ({
-          mois: monthYear.charAt(0).toUpperCase() + monthYear.slice(1),
-          total,
-        }))}
-      />
+            <Table
+              columns={columnsMonthTotal}
+              dataSource={Object.entries(totalSumMonth).map(
+                ([monthYear, total]) => ({
+                  mois: monthYear.charAt(0).toUpperCase() + monthYear.slice(1),
+                  total,
+                })
+              )}
+              pagination={false}
+            />
+            <div style={{ color: 'transparent', marginTop: '16px' }}>
+              div qui remplace la pagination pour faire un margin top de 16px{' '}
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 };
